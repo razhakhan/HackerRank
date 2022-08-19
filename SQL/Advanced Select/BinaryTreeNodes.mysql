@@ -1,0 +1,13 @@
+/*
+Enter your query here.
+*/
+select n, case
+    when p is null then 'Root' 
+    /* where p 'is' null is correct, p=null or p="null" are wrong*/
+    when n not in (select p from BST where p is not null) then 'Leaf'
+    /* while using not null, column should not have null values
+        so use 'is not null' to overcome this */
+    else 'Inner'
+    end
+from BST
+order by n;
