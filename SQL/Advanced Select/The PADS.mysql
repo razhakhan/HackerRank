@@ -1,0 +1,11 @@
+/*
+Enter your query here.
+*/
+select concat(o.Name, '(' , substr(o.Occupation,1,1) , ')')
+from OCCUPATIONS o
+order by o.Name;
+
+select concat('There are a total of ',count(*)," ", lower(o.Occupation),"s",'.')
+from OCCUPATIONS o
+group by o.Occupation
+order by count(*);
