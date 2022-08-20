@@ -1,0 +1,13 @@
+SET @a=0;
+SET @b = 0;
+SET @c = 0;
+SET @d = 0;
+SET @result = 0;
+
+SELECT min(lat_n) into @a FROM STATION;
+SELECT max(lat_n) into @b FROM STATION;
+SELECT min(long_w) into @c FROM STATION;
+SELECT max(long_w) into @d FROM STATION;
+
+SELECT  SQRT(POWER((@b-@a), 2) + POWER((@d-@c), 2)) into @result;
+SELECT ROUND(@result, 4)
