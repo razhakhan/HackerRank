@@ -1,0 +1,10 @@
+select m.Name, g.Grade, m.Marks
+from Students m
+inner join Grades g on g.Min_Mark<=m.Marks and m.Marks<=g.Max_Mark
+where g.Grade>=8
+order by g.Grade desc, m.Name;
+select "NULL", g2.Grade, m2.Marks
+from Students m2
+inner join Grades g2 on g2.Min_Mark<=m2.Marks and m2.Marks<=g2.Max_Mark /* or use 'between' minmark 'and' maxmark */
+where g2.Grade<8
+order by g2.Grade desc, m2.Marks;
